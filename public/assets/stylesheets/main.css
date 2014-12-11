@@ -1,0 +1,49 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.flex {
+	display: flex;
+}
+
+.nav {
+	height: 55px;
+	border-bottom: 1px solid #999;
+	padding: 5px;
+}
+
+#logo-small {
+	width: auto;
+	height: 100%;
+	min-width: 237px;
+}
+
+.login-container {
+	width: 90%;
+	max-width: 500px;
+	margin: 10px auto 10px auto;
+	padding: 5px;
+	border: 1px solid #999;
+	border-radius: 3px;
+}
+
+.linkedin-login {
+	box-sizing: border-box;
+	display: block;
+	margin: 0px auto 0px auto;
+	border: 0px;
+	border: 2px solid transparent;
+	padding: 3px 5px 3px 5px;
+	background: #0976b4;
+	color: #eee;
+}
+
+.linkedin-login:active {
+	border: 2px solid #999;
+}
+
+hr {
+	border: 0;
+	border-bottom: 1px solid #999;
+}
