@@ -1,1 +1,18 @@
-{{test}}
+<div class='flex space-around flex-wrap'>
+	<div class='container' ng-repeat='cohort in cohorts'>
+		<div class='cohort-header'>
+			<img class='cohort-image' ng-src='{{cohort.image}}'>
+			<strong>{{cohort.course}}</strong>
+			<em>{{cohort.type}}</em>
+		</div>
+		<hr>
+		<div>
+			<div>
+				<p class='cohort-description'>{{cohort.description}}</p>
+			</div>
+			<div class='flex flex-column'>
+				<button class='cohort-button' ng-click='go(cohort.course, cohort.type)'>View Graduates</button>
+			</div>
+		</div>
+	</div>
+</div>
