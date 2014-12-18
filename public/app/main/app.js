@@ -16,3 +16,6 @@ angular.module('studentBoard', ['ngRoute'])
 
 	$locationProvider.html5Mode(true);
 })
+.run(function(dataService){
+	dataService.updateStudents();
+})

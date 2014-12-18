@@ -1,5 +1,5 @@
 angular.module('studentBoard')
-.service('dataService', function(){
+.service('dataService', function($http){
 	var cohorts = [
 	{
 		course: 'Web Development',
@@ -30,5 +30,18 @@ angular.module('studentBoard')
 
 	this.getCohorts = function(){
 		return cohorts;
+	};
+
+	this.students = [];
+
+	this.updateStudents = function(){
+		$http({
+			method: 'GET',
+			url: '/api/students'
+		}).then(function(data){
+			console.log(data);
+			this.students = data.data;
+		})
 	}
+
 })
