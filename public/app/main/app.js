@@ -9,6 +9,10 @@ angular.module('studentBoard', ['ngRoute'])
 		templateUrl: '/app/views/cohorts/cohorts.html',
 		controller: 'cohortsCtrl'
 	})
+	.when('/cohorts/:course', {
+		templateUrl: '/app/views/students/students.html',
+		controller: 'studentsCtrl'
+	})
 
 	$locationProvider.html5Mode(true);
 })

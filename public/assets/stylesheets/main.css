@@ -6,6 +6,16 @@
 .flex {
 	display: flex;
 }
+.flex-wrap {
+	flex-wrap: wrap;
+}
+.flex-column {
+	flex-direction: column;
+}
+.space-around {
+	justify-content: space-around;
+}
+
 
 .nav {
 	height: 55px;
@@ -19,13 +29,32 @@
 	min-width: 237px;
 }
 
-.login-container {
+.container {
 	width: 90%;
 	max-width: 500px;
-	margin: 10px auto 10px auto;
+	margin: 20px;
 	padding: 5px;
 	border: 1px solid #999;
 	border-radius: 3px;
+}
+
+.cohort-header * {
+	vertical-align: middle;
+}
+.cohort-image {
+	width: auto;
+	height: 40px;
+}
+
+.cohort-description {
+	font-size: .8rem;
+}
+.cohort-button {
+	align-self: flex-end;
+}
+
+#login {
+	margin: 20px auto 20px auto;	
 }
 
 .linkedin-login {
