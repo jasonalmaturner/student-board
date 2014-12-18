@@ -7,6 +7,7 @@ var Express = require('express'),
 	env = require('./server-assets/env/vars'),
 	port = env.expressPort;
 
+// Am I gonna want to findOrCreate by email address?
 passport.use(new linkedInStrategy({
 	consumerKey: env.linkedIn.APIKey,
 	consumerSecret: env.linkedIn.secretKey,
