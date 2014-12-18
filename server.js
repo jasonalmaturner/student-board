@@ -7,6 +7,17 @@ var Express = require('express'),
 	env = require('./server-assets/env/vars'),
 	port = env.expressPort;
 
+// passport.use(new linkedInStrategy({
+// 	consumerKey: env.linkedIn.APIKey,
+// 	consumerSecret: env.linkedIn.secretKey,
+// 	callbackURL: "http://127.0.0.1:9001/auth/linkedin/callback"
+// },
+// 	function(token, tokenSecret, profile, done) {
+// 		User.findOrCreate({ linkedinId: profile.id}, function (err, user) {
+// 			return done(err, user);
+// 		});
+// 	}
+// ));
 
 passport.serializeUser(function(user, done) {
 	done(null, user.id);
@@ -30,4 +41,3 @@ app.all('*', function(req, res, next) {
 app.listen(port, function(){
 	console.log('Now listening on port ' + port);
 })
-
