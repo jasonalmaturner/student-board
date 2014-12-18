@@ -7,6 +7,8 @@ var Express = require('express'),
 	env = require('./server-assets/env/vars'),
 	port = env.expressPort;
 
+var studentController = require('./server-assets/controllers/student-controller');
+
 // Am I gonna want to findOrCreate by email address?
 passport.use(new linkedInStrategy({
 	consumerKey: env.linkedIn.APIKey,
@@ -33,6 +35,9 @@ app.use(bodyParser.json());
 app.use(session({ secret: env.expressSecret }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+app.get('/api/students', studentController.getAll);
 
 
 app.all('*', function(req, res, next) {
