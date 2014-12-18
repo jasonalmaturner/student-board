@@ -2,22 +2,22 @@ var Express = require('express'),
 	app = Express(),
 	bodyParser = require('body-parser'),
 	passport = require('passport'),
-	linkedInStrategy = require('passport-linkedin'),
+	linkedInStrategy = require('passport-linkedin').Strategy,
 	session = require('express-session'),
 	env = require('./server-assets/env/vars'),
 	port = env.expressPort;
 
-// passport.use(new linkedInStrategy({
-// 	consumerKey: env.linkedIn.APIKey,
-// 	consumerSecret: env.linkedIn.secretKey,
-// 	callbackURL: "http://127.0.0.1:9001/auth/linkedin/callback"
-// },
-// 	function(token, tokenSecret, profile, done) {
-// 		User.findOrCreate({ linkedinId: profile.id}, function (err, user) {
-// 			return done(err, user);
-// 		});
-// 	}
-// ));
+passport.use(new linkedInStrategy({
+	consumerKey: env.linkedIn.APIKey,
+	consumerSecret: env.linkedIn.secretKey,
+	callbackURL: "http://127.0.0.1:9001/auth/linkedin/callback"
+},
+	function(token, tokenSecret, profile, done) {
+		User.findOrCreate({ linkedinId: profile.id}, function (err, user) {
+			return done(err, user);
+		});
+	}
+));
 
 passport.serializeUser(function(user, done) {
 	done(null, user.id);
