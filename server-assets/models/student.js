@@ -10,6 +10,7 @@ var biOpts = [0, 1]
 
 var schema = new Mongoose.Schema({
 	id: { type: Number },
+	session_id: { type: Number },
 	password: {type: String },
 	first_name: { type: String },
 	last_name: { type: String },
