@@ -4,8 +4,13 @@ var Express = require('express'),
 	passport = require('passport'),
 	linkedInStrategy = require('passport-linkedin').Strategy,
 	session = require('express-session'),
+	mongoose = require('mongoose'),
 	env = require('./server-assets/env/vars'),
+	mongoUri = 'mongodb://localhost:27017/student-board',
+	connection = mongoose.connection,
 	port = env.expressPort;
+
+var studentController = require('./server-assets/controllers/student-controller');
 
 // Am I gonna want to findOrCreate by email address?
 passport.use(new linkedInStrategy({
@@ -35,8 +40,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+app.get('/api/students', studentController.getAll);
+
+
 app.all('*', function(req, res, next) {
     res.sendFile('/public/index.html', { root: __dirname });
+})
+
+mongoose.connect(mongoUri);
+
+connection.once('open', function(){
+	console.log('Connected to the Database at: ' + mongoUri)
 })
 
 app.listen(port, function(){

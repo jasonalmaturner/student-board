@@ -1,5 +1,5 @@
 angular.module('studentBoard')
-.controller('cohortsCtrl', function($scope, dataService, $location){
+.controller('coursesCtrl', function($scope, dataService, $location){
 	$scope.cohorts = dataService.getCohorts();
 
 	$scope.go = function(course, type){
@@ -9,6 +9,6 @@ angular.module('studentBoard')
 		if(type === 'Immersive') type = 'immersive';
 		else if (type === 'After Hours') type = 'after-hours';
 		
-		$location.path('/cohorts/' + course).search('type', type);
+		$location.path('/courses/' + course).search('type', type);
 	}
 })

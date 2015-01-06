@@ -5,14 +5,17 @@ angular.module('studentBoard', ['ngRoute'])
 		templateUrl: '/app/views/login/login.html',
 		controller: 'loginCtrl'
 	})
-	.when('/cohorts', {
-		templateUrl: '/app/views/cohorts/cohorts.html',
-		controller: 'cohortsCtrl'
+	.when('/courses', {
+		templateUrl: '/app/views/courses/courses.html',
+		controller: 'coursesCtrl'
 	})
-	.when('/cohorts/:course', {
+	.when('/courses/:course', {
 		templateUrl: '/app/views/students/students.html',
 		controller: 'studentsCtrl'
 	})
 
 	$locationProvider.html5Mode(true);
+})
+.run(function(dataService){
+	dataService.updateStudents();
 })
